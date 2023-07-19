@@ -36,6 +36,14 @@ public class BookService {
         return books;
     }
 
+    public Book findBookById(Long id){
+        var book = bookRepository.findBookById(id);
+        if (book == null) {
+            throw new IllegalStateException("Book with this ID does not exists !");
+        }
+        return book;
+    }
+
     public Book updateBook(Long id, UpdateBookRequest updateBookRequest) {
         var book = bookRepository.findBookById(id);
         if (book == null) {

@@ -24,6 +24,12 @@ public class BookController {
         return bookService.getBooks();
     }
 
+    @GetMapping("/byId")
+    @ResponseBody
+    private Book findBookById(@RequestParam long id){
+        return bookService.findBookById(id);
+    }
+
     @PostMapping
     @ResponseBody
     private Book addBook(@RequestBody @Valid AddBookRequest addBookRequest) {
